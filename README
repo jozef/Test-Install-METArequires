@@ -15,16 +15,16 @@ DESCRIPTION
 
 METHODS
   t
-
     Install requires listed in META.yml and output results as TAP.
 
   install($module, $version)
-
     Do `sudo cpan -i $module' if the required `$version' is not jet
     installed.
 
-  t_file
+  cpan_i_timeout
+    Set/get timeout for one `cpan -i ...` execution. Default is 1h.
 
+  t_file
     Return the location of METArequires.t file.
 
 AUTHOR

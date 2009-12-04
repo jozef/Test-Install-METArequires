@@ -27,7 +27,7 @@ use IPC::Run 'run', 'timeout';
 use Test::Builder;
 use File::Basename 'fileparse';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my $tb = Test::Builder->new();
 
@@ -91,7 +91,7 @@ sub install {
     
     # install module
     my ($in, $out);
-    if (run [ 'sudo', 'cpan', '-i', $module ], \$in, \$out, \$out, timeout( 15*60 )) {
+    if (run [ 'sudo', 'cpan', '-i', $module ], \$in, \$out, \$out, timeout( $self->cpan_i_timeout )) {
         eval "use $module $version;";
         if ($@) {
             $tb->ok(0, $test_name);
@@ -105,6 +105,22 @@ sub install {
         $tb->ok(0, $test_name.' - timeout');
         $tb->note($out);
     }
+}
+
+=head2 cpan_i_timeout
+
+Set/get timeout for one `cpan -i ...` execution. Default is 1h.
+
+=cut
+
+my $cpan_i_timeout = 60*60;    # default timeout is 1h
+sub cpan_i_timeout {
+    my $self    = shift;
+
+    $cpan_i_timeout = shift @_
+        if (@_ > 0);
+
+    return $cpan_i_timeout;
 }
 
 =head2 t_file
