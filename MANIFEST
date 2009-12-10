@@ -1,6 +1,7 @@
 Build.PL
 Changes
 lib/Test/iMETAr.pm
+lib/Test/Install/METArequires-Debian.t
 lib/Test/Install/METArequires.pm
 lib/Test/Install/METArequires.t
 Makefile.PL

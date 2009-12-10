@@ -19,7 +19,7 @@ use strict;
 
 use base 'Test::Install::METArequires';
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 1;
 

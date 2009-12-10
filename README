@@ -27,6 +27,9 @@ METHODS
   t_file
     Return the location of METArequires.t file.
 
+  t_debian_file
+    Return the location of METArequires-Debian.t file.
+
 AUTHOR
     Jozef Kutej, `<jkutej at cpan.org>'
 

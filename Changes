@@ -1,5 +1,8 @@
 Revision history for Test-Install-METArequires
 
+0.03   10 Dec 2009
+    * use dbedia::Debian if available
+
 0.02    4 Dec 2009
     * 1h cpan install timeout and can be set
 
