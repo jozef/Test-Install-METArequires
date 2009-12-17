@@ -18,8 +18,14 @@ METHODS
     Install requires listed in META.yml and output results as TAP.
 
   install($module, $version)
-    Do `sudo cpan -i $module' if the required `$version' is not jet
-    installed.
+    Do `cpan -i $module' if the required `$version' is not jet installed.
+
+    If dbedia::Debian is loaded. It will install modules from Debian
+    packages if available. Or at least module dependencies if higher version
+    is required than it is available in Debian.
+
+    Set `$ENV{IMETAR_SUDO}' to true if `sudo` has to be executed before each
+    `cpan' or `apt-get' commands.
 
   cpan_i_timeout
     Set/get timeout for one `cpan -i ...` execution. Default is 1h.
